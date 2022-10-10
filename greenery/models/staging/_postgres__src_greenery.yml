@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+
+  - name: src_greenery # name of the source
+    schema: public # this is the schema our raw data lives in
+    database: raw # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: addresses
+        description: >
+          Contains address, address_id, zip code of each user 
+      - name: events 
+        loaded_at_field: created_at
+        description: >
+          Contains event_id, user_id, session_id, product_id, order_id, page_url
+      - name: orders 
+        loaded_at_field: created_at
+        description: >
+          Contains all information regarding each order and user_id, promo_id, address_id, order_id
+      - name: order_items
+        description: >
+          Contains order_id, product_id, quantity
+      - name: products
+        description: >
+          Contains product_id, name, price and inventory
+      - name: promos
+        description: >
+          Contains promo_id, discount and status (active/inactive)
+      - name: users 
+        loaded_at_field: created_at
+        description: >
+          Contains all information regarding user: user_id, address_id, first and last name, email, phone number
+      
+    

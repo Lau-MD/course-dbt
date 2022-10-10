@@ -1,0 +1,86 @@
+version: 2
+
+models:
+  - name: stg_greenery__addresses
+    description: User address, country, state 
+    columns:
+      - name: address_id
+      - name: address
+      - name: zipcode
+        tests:
+          - positive_values
+      - name: state
+      - name: country
+
+  - name: stg_greenery__events
+    description: events information
+    columns:
+      - name: event_id
+      - name: session_id
+      - name: user_id
+        tests:
+          - positive_values
+      - name: page_url
+      - name: event_created_at
+      - name: event_type
+      - name: order_id
+      - name: product_id
+
+  - name: stg_greenery__order_items
+    description: order items information
+    columns:
+      - name: order_id
+      - name: product_id
+      - name: quantity
+        tests:
+          - positive_values
+
+  - name: stg_greenery__orders
+    description: orders information
+    columns:
+      - name: order_id
+      - name: user_id
+      - name: promo_id
+      - name: address_id
+      - name: order_created_at
+      - name: order_cost
+        tests:
+          - positive_values
+      - name: shipping_cost
+        tests:
+          - positive_values
+      - name: order_total
+        tests:
+          - positive_values
+      - name: tracking_id
+      - name: shipping_service
+      - name: estimated_delivery_at
+      - name: delivered_at
+      - name: status
+
+  - name: stg_greenery__products
+    description: products information
+    columns:
+      - name: product_id
+      - name: product_name
+      - name: price
+      - name: inventory
+
+  - name: stg_greenery__promos
+    description: promos information
+    columns:
+      - name: promo_id
+      - name: discount
+      - name: status
+
+  - name: stg_greenery__users
+    description: users information
+    columns:
+      - name: user_id,
+      - name: first_name
+      - name: last_name
+      - name: email
+      - name: phone_number
+      - name: user_created_at
+      - name: user_updated_at
+      - name: address_id
