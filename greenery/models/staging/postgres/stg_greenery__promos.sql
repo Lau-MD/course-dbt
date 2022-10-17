@@ -11,7 +11,7 @@ with promos_source as (
 , renamed_casted as(
   select
     promo_id,
-    discount
+    discount,
     status
   from promos_source
 
