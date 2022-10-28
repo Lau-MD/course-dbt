@@ -13,7 +13,8 @@ product_date_events AS (
         product_id,
         DATE_TRUNC(day, event_created_at) AS date,
         SUM(CASE WHEN event_type = 'page_view' THEN 1 ELSE 0 END) AS page_views,
-        SUM(CASE WHEN event_type = 'add_to_cart' THEN 1 ELSE 0 END) AS add_to_carts
+        SUM(CASE WHEN event_type = 'add_to_cart' THEN 1 ELSE 0 END) AS add_to_carts,
+        SUM(CASE WHEN event_type = 'checkout' THEN 1 ELSE 0 END) AS checkouts
     FROM events
     WHERE product_id IS NOT NULL
     GROUP BY 1,2
